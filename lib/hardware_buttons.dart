@@ -57,6 +57,11 @@ enum VolumeButtonEvent {
 
   /// Volume Down button event
   VOLUME_DOWN,
+
+  /// keyCode Media Next
+  MEDIA_NEXT,
+
+  HEAD_STOCK,
 }
 
 VolumeButtonEvent _eventToVolumeButtonEvent(dynamic event) {
@@ -64,6 +69,10 @@ VolumeButtonEvent _eventToVolumeButtonEvent(dynamic event) {
     return VolumeButtonEvent.VOLUME_UP;
   } else if (event == 25) {
     return VolumeButtonEvent.VOLUME_DOWN;
+  } else if (event == 87) {
+    return VolumeButtonEvent.MEDIA_NEXT;
+  } else if (event == 79) {
+    return VolumeButtonEvent.HEAD_STOCK;
   } else {
     throw Exception('Invalid volume button event');
   }

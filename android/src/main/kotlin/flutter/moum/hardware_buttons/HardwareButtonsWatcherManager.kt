@@ -27,6 +27,8 @@ class HardwareButtonsWatcherManager: PluginRegistry.ActivityResultListener {
     enum class VolumeButtonEvent(val value: Int) {
         VOLUME_UP(24),
         VOLUME_DOWN(25),
+        MEDIA_NEXT(87),
+        HEAD_STOCK(79)
     }
 
     interface HomeButtonListener {
@@ -223,6 +225,8 @@ class HardwareButtonsWatcherManager: PluginRegistry.ActivityResultListener {
             val volumeButtonEvent = when (keyEvent.keyCode) {
                 KeyEvent.KEYCODE_VOLUME_UP -> VolumeButtonEvent.VOLUME_UP
                 KeyEvent.KEYCODE_VOLUME_DOWN -> VolumeButtonEvent.VOLUME_DOWN
+                KeyEvent.KEYCODE_MEDIA_NEXT -> VolumeButtonEvent.MEDIA_NEXT
+                KeyEvent.KEYCODE_HEADSETHOOK -> VolumeButtonEvent.HEAD_STOCK
                 else -> null
             }
             if (volumeButtonEvent != null) {
